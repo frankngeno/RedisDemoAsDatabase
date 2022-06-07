@@ -1,44 +1,45 @@
 package com.fngeno.redisDemo.controller;
 
 import com.fngeno.redisDemo.entity.Product;
-import com.fngeno.redisDemo.repository.ProductDao;
+import com.fngeno.redisDemo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Frank Ngeno
  */
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping
 public class ProductController {
     @Autowired
-    private ProductDao dao;
+    private ProductService productService;
 
-    @GetMapping
+    @GetMapping("/product")
     public List <Product> getAllProducts(){
-        return dao.findAll();
+        return productService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Product findProduct(@PathVariable int id){
-        return dao.findProductById(id);
+    @GetMapping("product/{id}")
+    public Product findProductById(@PathVariable String id){
+        return productService.findById(id);
     }
 
-    @PostMapping
-    public Product save(@RequestBody Product product){
-        return  dao.save(product);
+    @PostMapping("/product")
+    public String save(@RequestBody Product product){
+        return  productService.save(product);
     }
 
-    @PutMapping("/{id}")
-    public Product update(@RequestBody Product product, @PathVariable int id){
-        return  dao.save(product);
+    @PutMapping("product/{id}")
+    public String updateProduct(@RequestBody Product product){
+        return  productService.save(product);
     }
 
-    @DeleteMapping("/{id}")
-    public String remove(@PathVariable int id){
-        return dao.deleteProduct(id);
+    @DeleteMapping("product/{id}")
+    public String remove(@PathVariable String id){
+        return productService.deleteProduct(id);
     }
 }

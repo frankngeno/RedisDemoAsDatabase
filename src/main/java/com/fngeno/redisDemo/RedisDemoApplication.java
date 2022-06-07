@@ -1,42 +1,13 @@
 package com.fngeno.redisDemo;
 
-import com.fngeno.redisDemo.entity.Product;
-import com.fngeno.redisDemo.repository.ProductDao;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
-@SpringBootApplication
-//@RestController
-//@RequestMapping("/product")
+@Configuration
+@SpringBootApplication(scanBasePackages = {"com.fngeno.redisDemo"})
 public class RedisDemoApplication {
-//
-//    @Autowired
-//    private ProductDao dao;
-//
-//    @PostMapping
-//    public Product save(@RequestBody Product product){
-//        return  dao.save(product);
-//    }
-//
-//    @GetMapping
-//    public List<Product> getAllProducts(){
-//        return dao.findAll();
-//    }
-//
-//    @GetMapping("/{id}")
-//    public Product findProduct(@PathVariable int id){
-//        return dao.findProductById(id);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public String remove(@PathVariable int id){
-//        return dao.deleteProduct(id);
-//    }
-
 	public static void main(String[] args) {
 		SpringApplication.run(RedisDemoApplication.class, args);
 	}

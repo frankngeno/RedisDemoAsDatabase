@@ -1,4 +1,5 @@
-This is a model project with sample implementation of RESTApis with RedisDB to persist data.
+There several uses of Redis: as Database, cache, message broker and queue.
+This is a model project with sample implementation of RESTApis to use RedisDB to persist data.
 
 Requirements
 For building and running the application you need:
